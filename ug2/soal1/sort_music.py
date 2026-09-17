@@ -8,12 +8,25 @@ songs = [
 ]
 
 def sort_by_views(songs):
-    res = songs.copy()
-    pass
+    res = songs.copy() 
+    n = len(res)
+    for i in range(n - 1):   
+        for j in range(n - i - 1):
+            if res[j]["views"] < res[j + 1]["views"]: 
+                res[j], res[j + 1] = res[j + 1], res[j] 
+    return res
 
 def sort_by_favourite_genre(songs, favourite_genre):
     res = songs.copy()
-    pass
+    n = len(res)
+
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            kiri_favorit = res[j]["genre"] == favourite_genre 
+            kanan_favorit = res[j + 1]["genre"] == favourite_genre 
+            if not kiri_favorit and kanan_favorit: 
+                res[j], res[j + 1] = res[j + 1], res[j] 
+    return res
 
 print("=== SORT BY VIEWS ===")
 
