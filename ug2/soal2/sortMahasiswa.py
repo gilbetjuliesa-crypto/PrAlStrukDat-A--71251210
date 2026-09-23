@@ -33,7 +33,7 @@ def sort_by(data: list=data, index: str="nim",rev = False):
     # Jangan Dihapus
     show_data(data)
 
-sort_by(data)
+sort_by(data, "")
 
 
     
