@@ -6,7 +6,7 @@ from tugas import tampilkan_tugas, tambah_tugas, edit_tugas
 # STEP 1: Buat session state untuk login
 if "login" not in st.session_state:
     # TODO: tentukan nilai awal login
-    pass
+    st.session_state.login = False
 
 # STEP 2: Simpan data tugas ke session state
 if "tugas" not in st.session_state:
@@ -24,7 +24,8 @@ else:
     # STEP 4: Buat fitur logout
     if st.sidebar.button("Logout"):
         # TODO: reset status login dan role
-        pass
+        st.session_state.login = False
+        st.session_state.role = None
 
         st.rerun()
 
