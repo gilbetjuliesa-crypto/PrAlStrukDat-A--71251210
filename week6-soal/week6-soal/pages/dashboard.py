@@ -4,10 +4,12 @@ from user import user_data_by_username
 st.set_page_config(page_title="DwTix - Dashboard")
 
 # cek apakah sudah login -> JIKA BELUM ALIHKAN KE app.py
-if "login_in" not in st.session_state or not st.session_state.login_in:
+if "logged_in" not in st.session_state or not st.session_state.logged_in:
     st.switch_page("app.py")
+
 # JANGAN PERNAH RAGU UNTUK CEK DATA PAKAI st.write() ya dari pada ngawang
 data = user_data_by_username()
+
 # ambil role yang login dari data
 username = st.session_state.username
 role = data[username]["role"]
@@ -22,4 +24,4 @@ st.title(f"Welcome, {role} 👋")
 
 if role == "Admin":
     st.header("Data Pengguna")
-    st.write(data)
+    st.table(data)
